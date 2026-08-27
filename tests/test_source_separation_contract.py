@@ -25,6 +25,14 @@ from voice_dubbing_runtime.source_separation_worker import (
     _run,
     _verify_runtime_packages,
 )
+from tests.helpers import (
+    assert_paths_equal,
+    build_broken_split_fixture,
+    json_write,
+    wave_validator,
+    write_pcm_wav,
+    write_wav,
+)
 
 
 def _sha(path: Path) -> str:
@@ -337,8 +345,8 @@ class SourceSeparationLauncherTests(SourceSeparationFixture):
         result, requests, source, output, work = self._run(mode="success")
         self.assertEqual(123456, result["peak_ram_bytes"])
         self.assertTrue(output.is_file())
-        self.assertEqual(str(source.resolve()), requests[0]["input_path"])
-        self.assertEqual(str(output.resolve()), requests[0]["output_path"])
+        assert_paths_equal(source, requests[0]["input_path"])
+        assert_paths_equal(output, requests[0]["output_path"])
         self.assertEqual("vocals", requests[0]["two_stems"])
         self.assertEqual([], list(work.glob(".source-separation-*")))
         self.assertEqual([], list(output.parent.glob(".*.demucs.wav")))
@@ -346,8 +354,8 @@ class SourceSeparationLauncherTests(SourceSeparationFixture):
         self.assertTrue(log_path.is_file())
         diagnostic = json.loads(log_path.read_text(encoding="utf-8"))
         self.assertEqual("success", diagnostic["status"])
-        self.assertEqual(str(source.resolve()), diagnostic["input_path"])
-        self.assertEqual(str(output.resolve()), diagnostic["output_path"])
+        assert_paths_equal(source, diagnostic["input_path"])
+        assert_paths_equal(output, diagnostic["output_path"])
 
     def test_cancel_kills_worker_and_cleans_only_job_temp(self) -> None:
         with self.assertRaises(VoiceRuntimeError) as caught:
