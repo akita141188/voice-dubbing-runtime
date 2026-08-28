@@ -214,6 +214,14 @@ Good places to start:
 - [#5 — Add standalone GUI screenshots and a short demo GIF](https://github.com/akita141188/voice-dubbing-runtime/issues/5) — `good first issue`, documentation/UI.
 - [#6 — Centralize Windows path-equivalence assertions for CI](https://github.com/akita141188/voice-dubbing-runtime/issues/6) — `good first issue`, tests.
 - [#7 — Add a small public Python API](https://github.com/akita141188/voice-dubbing-runtime/issues/7) — `help wanted`, API design.
+- [#14 — Community roadmap: voices, languages, cloning quality and desktop UX](https://github.com/akita141188/voice-dubbing-runtime/issues/14) — umbrella roadmap, `help wanted`.
+- [#15 — Expand Vietnamese voice diversity to 10–20 distinct voices](https://github.com/akita141188/voice-dubbing-runtime/issues/15) — Vietnamese TTS/voice work.
+- [#16 — Expand English voice diversity to 10–20 distinct voices](https://github.com/akita141188/voice-dubbing-runtime/issues/16) — English TTS/voice work.
+- [#17 — Add extensible support for additional languages](https://github.com/akita141188/voice-dubbing-runtime/issues/17) — multilingual architecture.
+- [#18 — Define a reproducible voice-clone fidelity benchmark with a 0.95 target](https://github.com/akita141188/voice-dubbing-runtime/issues/18) — ML/audio evaluation.
+- [#19 — Redesign the standalone desktop workflow](https://github.com/akita141188/voice-dubbing-runtime/issues/19) — UI/UX and PySide6.
+- [#20 — Add dubbing timing and duration adaptation](https://github.com/akita141188/voice-dubbing-runtime/issues/20) — dubbing/audio workflow.
+- [#21 — Analyze source speakers and recommend matching voices](https://github.com/akita141188/voice-dubbing-runtime/issues/21) — speaker analysis and voice matching.
 
 Browse all [open issues](https://github.com/akita141188/voice-dubbing-runtime/issues) or join [GitHub Discussions](https://github.com/akita141188/voice-dubbing-runtime/discussions) for questions, ideas and roadmap conversations.
 
@@ -225,10 +233,17 @@ Near-term priorities:
 
 1. Add screenshots/demo media and improve first-run UX.
 2. Stabilize the public runtime/API surface.
-3. Improve reference candidate ranking and quality evaluation.
-4. Add dubbing workflow features: segment/subtitle input, batch synthesis, timing adaptation and track assembly.
-5. Build a clean Windows packaging/release pipeline.
-6. Integrate FrameExtract Studio only after the standalone runtime/API is stable.
+3. Expand Vietnamese and English voice diversity toward 10–20 distinct voices per language.
+4. Add more languages through a clean language/engine capability architecture.
+5. Define reproducible voice-clone quality evaluation, with a long-term speaker-similarity target of `>= 0.95` under the agreed benchmark plus human listening acceptance.
+6. Improve reference candidate ranking and quality evaluation.
+7. Improve the standalone UI/UX, including first-run flow, profile/reference management, synthesis and Windows DPI/scaling.
+8. Add dubbing workflow features: segment/subtitle input, batch synthesis, timing adaptation and track assembly.
+9. Explore automatic source-speaker analysis and matching voice recommendations.
+10. Build a clean Windows packaging/release pipeline.
+11. Integrate FrameExtract Studio only after the standalone runtime/API is stable.
+
+The community roadmap and independently claimable workstreams are tracked in [#14](https://github.com/akita141188/voice-dubbing-runtime/issues/14) and child issues [#15](https://github.com/akita141188/voice-dubbing-runtime/issues/15)–[#21](https://github.com/akita141188/voice-dubbing-runtime/issues/21).
 
 The project remains CPU-first and keeps model provisioning separate from the source distribution.
 
