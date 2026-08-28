@@ -22,12 +22,11 @@ class TestHelpers(unittest.TestCase):
             assert_paths_equal("C:\\Foo\\Bar.txt", "c:\\foo\\bar.txt")
             assert_paths_equal(Path("C:\\Foo\\Bar.txt"), Path("c:\\foo\\bar.txt"))
 
-    @patch("tests.helpers.os.name", "nt")
-    def test_assert_paths_equal_windows_short_path_fallback(self) -> None:
-        # Mock os.path.samefile to simulate a short path match
-        with patch("tests.helpers.os.path.samefile") as mock_samefile:
-            mock_samefile.return_value = True
-            # Even if strings are completely different (like a short path),
-            # if samefile returns True, it should not raise AssertionError.
-            assert_paths_equal("C:\\DOCUME~1\\TEST", "C:\\Documents and Settings\\TEST")
-            mock_samefile.assert_called_once()
+    @unittest.skipUnless(os.name == "nt", "Windows-specific path test")
+    @patch("tests.helpers.os.path.samefile", return_value=True)
+    def test_assert_paths_equal_windows_short_path_fallback(self, mock_samefile) -> None:
+        assert_paths_equal(
+            r"C:\DOCUME~1\TEST",
+            r"C:\Documents and Settings\TEST",
+        )
+        mock_samefile.assert_called_once()
