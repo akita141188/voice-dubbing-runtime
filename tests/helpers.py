@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import math
 import struct
 import wave
@@ -116,7 +117,6 @@ def wave_validator(path: Path) -> dict:
         "ffmpeg_decode": "Test double Pass",
     }
 
-import os
 
 def assert_paths_equal(actual: str | Path, expected: str | Path) -> None:
     path_a = Path(actual).resolve()
