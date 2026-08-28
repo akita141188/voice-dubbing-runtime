@@ -214,6 +214,14 @@ Gợi ý bắt đầu:
 - [#5 — Thêm screenshot và demo GIF cho GUI](https://github.com/akita141188/voice-dubbing-runtime/issues/5) — `good first issue`, docs/UI.
 - [#6 — Chuẩn hóa Windows path-equivalence assertions](https://github.com/akita141188/voice-dubbing-runtime/issues/6) — `good first issue`, tests.
 - [#7 — Thêm public Python API nhỏ](https://github.com/akita141188/voice-dubbing-runtime/issues/7) — `help wanted`, API design.
+- [#14 — Roadmap cộng đồng: giọng, ngôn ngữ, chất lượng clone và UI/UX](https://github.com/akita141188/voice-dubbing-runtime/issues/14) — roadmap tổng, `help wanted`.
+- [#15 — Mở rộng tiếng Việt lên 10–20 giọng khác biệt](https://github.com/akita141188/voice-dubbing-runtime/issues/15) — Vietnamese TTS/voice.
+- [#16 — Mở rộng tiếng Anh lên 10–20 giọng khác biệt](https://github.com/akita141188/voice-dubbing-runtime/issues/16) — English TTS/voice.
+- [#17 — Thêm kiến trúc mở rộng cho các ngôn ngữ khác](https://github.com/akita141188/voice-dubbing-runtime/issues/17) — multilingual architecture.
+- [#18 — Xây benchmark clone giọng tái lập được với target 0.95](https://github.com/akita141188/voice-dubbing-runtime/issues/18) — ML/audio evaluation.
+- [#19 — Thiết kế lại và cải thiện workflow desktop](https://github.com/akita141188/voice-dubbing-runtime/issues/19) — UI/UX và PySide6.
+- [#20 — Thêm timing và duration adaptation cho dubbing](https://github.com/akita141188/voice-dubbing-runtime/issues/20) — dubbing/audio workflow.
+- [#21 — Phân tích speaker nguồn và đề xuất giọng phù hợp](https://github.com/akita141188/voice-dubbing-runtime/issues/21) — speaker analysis/voice matching.
 
 Xem toàn bộ [open issues](https://github.com/akita141188/voice-dubbing-runtime/issues) hoặc tham gia [GitHub Discussions](https://github.com/akita141188/voice-dubbing-runtime/discussions) để hỏi đáp, đề xuất ý tưởng và trao đổi roadmap.
 
@@ -223,10 +231,17 @@ Xem toàn bộ [open issues](https://github.com/akita141188/voice-dubbing-runtim
 
 1. Thêm screenshot/demo media và cải thiện first-run UX.
 2. Ổn định public runtime/API surface.
-3. Cải thiện reference candidate ranking và quality evaluation.
-4. Phát triển dubbing workflow: segment/subtitle input, batch synthesis, timing adaptation và track assembly.
-5. Xây Windows packaging/release pipeline sạch.
-6. Chỉ tích hợp FrameExtract Studio sau khi standalone runtime/API ổn định.
+3. Mở rộng tiếng Việt và tiếng Anh lên khoảng 10–20 giọng khác biệt cho mỗi ngôn ngữ.
+4. Thêm nhiều ngôn ngữ khác qua kiến trúc language/engine capability rõ ràng.
+5. Xây quality benchmark tái lập được cho clone giọng, với mục tiêu dài hạn speaker similarity `>= 0.95` theo benchmark đã thống nhất và vẫn phải qua human listening acceptance.
+6. Cải thiện reference candidate ranking và quality evaluation.
+7. Cải thiện UI/UX standalone: first-run flow, profile/reference management, synthesis và Windows DPI/scaling.
+8. Phát triển dubbing workflow: segment/subtitle input, batch synthesis, timing adaptation và track assembly.
+9. Nghiên cứu source-speaker analysis và tự đề xuất voice/profile phù hợp.
+10. Xây Windows packaging/release pipeline sạch.
+11. Chỉ tích hợp FrameExtract Studio sau khi standalone runtime/API ổn định.
+
+Roadmap cho contributor được theo dõi tại [#14](https://github.com/akita141188/voice-dubbing-runtime/issues/14), với các workstream độc lập tại [#15](https://github.com/akita141188/voice-dubbing-runtime/issues/15)–[#21](https://github.com/akita141188/voice-dubbing-runtime/issues/21).
 
 Project tiếp tục theo hướng CPU-first và không bundle model restricted vào source distribution.
 
