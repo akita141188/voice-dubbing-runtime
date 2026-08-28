@@ -4,6 +4,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from tests.helpers import assert_paths_equal
 
 from voice_dubbing_runtime.paths import (
     legacy_user_data_root,
@@ -36,7 +37,7 @@ class StorageMigrationTests(unittest.TestCase):
             payload = migrate_storage(legacy, target)
             self.assertEqual("NO_SOURCE", payload["status"])
             self.assertFalse(target.exists())
-            self.assertEqual(target, user_data_root(environ))
+            assert_paths_equal(target, user_data_root(environ))
 
     def test_legacy_only_is_copied_verified_and_selected(self) -> None:
         with tempfile.TemporaryDirectory() as raw:
@@ -48,7 +49,7 @@ class StorageMigrationTests(unittest.TestCase):
             self.assertEqual(source.read_bytes(), copied.read_bytes())
             self.assertTrue(source.exists())
             self.assertTrue(migration_is_complete(target))
-            self.assertEqual(target, user_data_root(environ))
+            assert_paths_equal(target, user_data_root(environ))
 
     def test_existing_identical_target_is_not_overwritten(self) -> None:
         with tempfile.TemporaryDirectory() as raw:
@@ -82,7 +83,7 @@ class StorageMigrationTests(unittest.TestCase):
             self.assertEqual(b"source", source.read_bytes())
             self.assertEqual(b"target", conflict.read_bytes())
             self.assertFalse(migration_is_complete(target))
-            self.assertEqual(legacy, user_data_root(environ))
+            assert_paths_equal(legacy, user_data_root(environ))
 
     def test_hidden_history_trash_and_pre_repair_snapshots_are_preserved(self) -> None:
         with tempfile.TemporaryDirectory() as raw:
@@ -118,7 +119,7 @@ class StorageMigrationTests(unittest.TestCase):
             (target / "migration.json").write_text(
                 json.dumps({"schema_version": 1, "status": "FAILED"}), encoding="utf-8"
             )
-            self.assertEqual(legacy, user_data_root(environ))
+            assert_paths_equal(legacy, user_data_root(environ))
 
 
 if __name__ == "__main__":

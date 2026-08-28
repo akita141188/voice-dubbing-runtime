@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import math
 import struct
 import wave
@@ -115,3 +116,19 @@ def wave_validator(path: Path) -> dict:
         "clipping_ratio": 0.0,
         "ffmpeg_decode": "Test double Pass",
     }
+
+
+def assert_paths_equal(actual: str | Path, expected: str | Path) -> None:
+    path_a = Path(actual).resolve()
+    path_b = Path(expected).resolve()
+    if os.name == 'nt':
+        try:
+            if os.path.samefile(path_a, path_b):
+                return
+        except FileNotFoundError:
+            pass
+        if str(path_a).lower() == str(path_b).lower():
+            return
+    if path_a != path_b:
+        raise AssertionError(f"Paths differ:\nActual:   {path_a}\nExpected: {path_b}")
+
