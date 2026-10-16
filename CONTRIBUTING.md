@@ -57,3 +57,7 @@ data thật. Không dùng model synthesis như một unit-test mặc định.
 - [ ] Không làm sai root-license/model-license/voice-consent boundaries.
 
 Mọi contributor phải tuân thủ [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
+
+## Đóng góp giọng đọc / Voice contributions
+
+Trước khi nhận task về voice profile hoặc ngôn ngữ mới, đọc [lộ trình tiếng Việt](docs/GLOBAL_VOICES.vi.md) hoặc [English roadmap](docs/GLOBAL_VOICES.md). Mỗi task quốc tế #36–#55 yêu cầu tối thiểu **5 reference voice của 5 người nói khác nhau** có consent/license hợp lệ, không phải 5 file của một người. Contributor phải bình luận đề xuất nguồn giọng, quyền sử dụng, engine và kế hoạch test trước khi code. Không commit audio private/chưa được cấp phép; chỉ có metadata chưa được coi là hoàn thành. Phải kiểm chứng synthesis thực tế, profile discovery và CI; nếu engine chưa hỗ trợ thì nêu rõ blocker thay vì tuyên bố task hoàn tất.
