@@ -278,3 +278,7 @@ Voice cloning can produce audio resembling a real person. Users and contributors
 - [Contributing guide](CONTRIBUTING.md) — development workflow and PR requirements.
 
 If the project is useful to you, testing it, opening a focused issue, contributing a PR, sharing it with other developers, or starring the repository all help the project grow.
+
+## Global voice contribution roadmap
+
+Community language and reference-voice tracks are tracked in [Global Voices Roadmap](docs/GLOBAL_VOICES.md). The 20 international language/locale issues (#36–#55) target **at least five distinct, licensed/consented reference speakers per track** (100 future voice options in total). These are **planned contributions, not shipped or verified voices**. See the roadmap for acceptance criteria, engine-compatibility checks and how to claim an issue.
