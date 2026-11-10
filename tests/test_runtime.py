@@ -13,6 +13,7 @@ import uuid
 from pathlib import Path
 from unittest import mock
 
+from tests.helpers import assert_paths_equal
 from voice_dubbing_runtime import VoiceRuntime
 from voice_dubbing_runtime.errors import (
     CANCELLED,
@@ -109,7 +110,7 @@ class VoiceRuntimeTests(unittest.TestCase):
         result = self.synthesize()
 
         self.assertEqual("generated.wav", result["output_audio"])
-        self.assertEqual(str(result_path), result["result_path"])
+        assert_paths_equal(result["result_path"], result_path)
         command = popen.call_args.args[0]
         self.assertEqual(["worker", "--job", "-"], command[-3:])
         request = json.loads(process.stdin.write.call_args.args[0])
