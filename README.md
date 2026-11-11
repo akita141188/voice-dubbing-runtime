@@ -173,6 +173,38 @@ The runtime uses machine-readable markers prefixed with:
 @@VOICE_DUB|
 ```
 
+### Python API
+
+External Python callers can use `VoiceRuntime` as a small synchronous wrapper
+around the commands above. It starts the existing CLI/worker in a subprocess,
+so importing the wrapper does not import or load an engine model.
+
+```python
+from voice_dubbing_runtime import VoiceRuntime
+
+runtime = VoiceRuntime()
+for profile in runtime.list_profiles():
+    print(profile["display_name"])
+
+result = runtime.synthesize(
+    profile_id="example_voice",
+    text="Hello from the runtime.",
+    language="en",
+)
+print(result["output_audio"])
+```
+
+`capabilities()` returns the `capabilities --json` object. `list_profiles()`
+returns its profile rows, and `get_profile(profile_id)` returns one profile.
+`synthesize()` submits a schema-v1 `synthesize` job and returns the durable
+worker result, including `output_audio`, `output_validation`, and
+`result_path`. Failed commands raise `VoiceRuntimeError` with `code`,
+`message`, and `details`. The wrapper does not provision models or download
+files; consent, license, and reference validation remain in the runtime.
+It accepts a synthesis result only when the worker exits successfully and the
+worker marker plus durable result file agree on the submitted job. Process
+output is retained up to 1 MB per stream; larger output fails safely.
+
 ---
 
 ## Storage and backward compatibility
