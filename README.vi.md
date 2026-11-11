@@ -276,3 +276,7 @@ Voice cloning có thể tạo audio giống giọng người thật. User/contri
 - [Contributing guide](CONTRIBUTING.md) — workflow phát triển và PR requirements.
 
 Nếu project hữu ích với bạn, việc test, mở issue rõ ràng, gửi PR, chia sẻ project với developer khác hoặc star repo đều giúp dự án phát triển.
+
+## Lộ trình đóng góp giọng đọc toàn cầu
+
+Xem [Lộ trình giọng đọc đa ngôn ngữ](docs/GLOBAL_VOICES.vi.md) để nhận task. Hai mươi issue quốc tế (#36–#55) đặt mục tiêu **mỗi ngôn ngữ/vùng miền có ít nhất 5 người nói reference khác nhau, có quyền sử dụng hợp lệ** (tổng mục tiêu tương lai 100 giọng). Đây là **kế hoạch, chưa phải các giọng đã hoạt động/được nghiệm thu**. Tài liệu có tiêu chí kiểm chứng engine, chất lượng và cách đăng ký nhận việc.
